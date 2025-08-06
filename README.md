@@ -22,3 +22,19 @@ python app.py
 Then open `http://localhost:5000` in your browser. You can also override the
 camera URL for a single request using the `url` query parameter:
 `http://localhost:5000/?url=http://some/other/stream`.
+
+## Docker
+
+Build the container image:
+
+```bash
+docker build -t printer-camera-viewer .
+```
+
+Run the container, mapping the port and providing the camera stream URL:
+
+```bash
+docker run -p 5000:5000 -e CAMERA_URL=http://your-printer/stream printer-camera-viewer
+```
+
+After the container starts, visit `http://localhost:5000` in your browser to view the stream.
